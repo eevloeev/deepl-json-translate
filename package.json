@@ -1,0 +1,22 @@
+{
+  "name": "deepl-json-translate",
+  "version": "0.0.0",
+  "description": "TypeScript library to translate your i18n files (JSON) via DeepL API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "keywords": [
+    "deepl",
+    "json",
+    "translate",
+    "translator",
+    "translation"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "Aslan Evloev <eevloeev@gmail.com>",
+  "license": "ISC"
+}
