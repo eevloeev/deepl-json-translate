@@ -1,16 +1,8 @@
 {
   "name": "deepl-json-translate",
   "version": "0.0.0",
+  "license": "MIT",
   "description": "TypeScript library to translate your i18n files (JSON) via DeepL API",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:eevloeev/deepl-json-translate.git"
-  },
-  "files": [
-    "/dist"
-  ],
   "keywords": [
     "deepl",
     "json",
@@ -18,12 +10,38 @@
     "translator",
     "translation"
   ],
-  "scripts": {
-    "build": "tsc"
-  },
   "author": "Aslan Evloev <eevloeev@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:eevloeev/deepl-json-translate.git"
+  },
   "bugs": {
     "url": "https://github.com/eevloeev/deepl-json-translate/issues"
   },
-  "license": "MIT"
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "del dist && tsc",
+    "watch": "del dist && tsc -w",
+    "test": "del dist && tsc && uvu -r tsm tests",
+    "format": "prettier --config .prettierrc.json --write \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
+    "prettier:check": "prettier --config .prettierrc.json --check \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "src/**/*": "prettier --write --ignore-unknown"
+  },
+  "devDependencies": {
+    "del-cli": "5.0.0",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.2",
+    "prettier": "2.8.8",
+    "tsm": "2.3.0",
+    "typescript": "5.0.4",
+    "uvu": "0.5.6"
+  }
 }

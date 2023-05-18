@@ -1,9 +1,18 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es2015",
+    "strict": true,
+    "alwaysStrict": true,
+    "allowJs": true,
+    "checkJs": true,
+    "module": "esnext",
+    "target": "esnext",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
     "declaration": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "esModuleInterop": true
   },
-  "include": ["src/**/*"]
+  "include": ["src", "tests"],
+  "exclude": ["node_modules"]
 }
