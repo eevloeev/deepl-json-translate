@@ -1,0 +1,1 @@
+export { translateJson } from "./translateJson"

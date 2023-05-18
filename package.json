@@ -35,8 +35,12 @@
   "lint-staged": {
     "src/**/*": "prettier --write --ignore-unknown"
   },
+  "dependencies": {
+    "deepl-node": "1.9.0"
+  },
   "devDependencies": {
     "del-cli": "5.0.0",
+    "dotenv": "16.0.3",
     "husky": "8.0.3",
     "lint-staged": "13.2.2",
     "prettier": "2.8.8",
