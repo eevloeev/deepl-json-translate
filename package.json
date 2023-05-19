@@ -1,6 +1,6 @@
 {
   "name": "deepl-json-translate",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "description": "TypeScript library to translate your i18n files (JSON) via DeepL API",
   "keywords": [
@@ -36,9 +36,11 @@
     "src/**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
-    "deepl-node": "1.9.0"
+    "deepl-node": "1.9.0",
+    "flat": "5.0.2"
   },
   "devDependencies": {
+    "@types/flat": "5.0.2",
     "del-cli": "5.0.0",
     "dotenv": "16.0.3",
     "husky": "8.0.3",

@@ -14,16 +14,43 @@ const Translator = suite("Translator")
 
 Translator(
   "Should return an empty output when recieving an empty input",
-  () => {
-    assert.equal(
-      translateJson({
-        authKey: DEEPL_AUTH_KEY,
-        input: {},
-        targetLang: "en-US",
-        sourceLang: "ru",
-      }),
-      {}
-    )
+  async () => {
+    const result = await translateJson({
+      authKey: DEEPL_AUTH_KEY,
+      input: {},
+      targetLang: "en-US",
+      sourceLang: "ru",
+    })
+
+    assert.equal(result, {})
+  }
+)
+
+Translator(
+  "Should return the translated object with nested fields",
+  async () => {
+    const result = await translateJson({
+      authKey: DEEPL_AUTH_KEY,
+      input: {
+        firstName: "Джон",
+        lastName: "Доу",
+        address: {
+          city: "Москва",
+          country: "Россия",
+        },
+      },
+      targetLang: "en-US",
+      sourceLang: "ru",
+    })
+
+    assert.equal(result, {
+      firstName: "John",
+      lastName: "Doe",
+      address: {
+        city: "Moscow",
+        country: "Russia",
+      },
+    })
   }
 )
 

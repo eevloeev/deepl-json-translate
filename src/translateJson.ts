@@ -1,22 +1,50 @@
-import * as deepl from "deepl-node"
+import { SourceLanguageCode, TargetLanguageCode, Translator } from "deepl-node"
+import { flatten, unflatten } from "flat"
 
 type Args = {
   authKey: string
   input: string | object
-  sourceLang?: deepl.SourceLanguageCode
-  targetLang: deepl.TargetLanguageCode
+  sourceLang?: SourceLanguageCode
+  targetLang: TargetLanguageCode
 }
 
-export const translateJson = (args: Args) => {
+type JSON = {
+  [key: string]: JSON | string
+}
+
+type FlatJSON = {
+  [key: string]: string
+}
+
+export const translateJson = async (args: Args) => {
   const { authKey, input, sourceLang, targetLang } = args
 
-  const json: object = typeof input === "string" ? JSON.parse(input) : input
+  const json: JSON = typeof input === "string" ? JSON.parse(input) : input
 
   if (Object.keys(json).length === 0) {
     return {}
   }
 
-  const translator = new deepl.Translator(authKey)
+  const preparedJson = flatten<JSON, FlatJSON>(json)
 
-  // Translating...
+  const translator = new Translator(authKey)
+
+  const translatedStrings = await translator.translateText(
+    Object.values(preparedJson),
+    sourceLang ?? null,
+    targetLang,
+    {
+      tagHandling: "html",
+    }
+  )
+
+  const translatedJson: FlatJSON = {}
+
+  const keys = Object.keys(preparedJson)
+  translatedStrings.forEach((value, index) => {
+    translatedJson[keys[index]] = value.text
+  })
+  const resultJson = unflatten(translatedJson)
+
+  return resultJson
 }
