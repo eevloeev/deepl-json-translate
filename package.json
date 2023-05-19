@@ -2,7 +2,7 @@
   "name": "deepl-json-translate",
   "version": "0.1.0",
   "license": "MIT",
-  "description": "TypeScript library to translate your i18n files (JSON) via DeepL API",
+  "description": "TypeScript library to translate your JSON files via DeepL API",
   "keywords": [
     "deepl",
     "json",
