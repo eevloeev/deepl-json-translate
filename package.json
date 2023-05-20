@@ -1,6 +1,6 @@
 {
   "name": "deepl-json-translate",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "description": "TypeScript library to translate your JSON files via DeepL API",
   "keywords": [
