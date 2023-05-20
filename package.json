@@ -1,6 +1,6 @@
 {
   "name": "deepl-json-translate",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "description": "TypeScript library to translate your JSON files via DeepL API",
   "keywords": [
@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/eevloeev/deepl-json-translate/issues"
   },
-  "type": "module",
+  "type": "commonjs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
