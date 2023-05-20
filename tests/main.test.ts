@@ -1,7 +1,7 @@
 import * as dotenv from "dotenv"
 import { suite } from "uvu"
 import assert from "uvu/assert"
-import { translateJson } from "../src/translateJson"
+import { translateJson } from "../dist"
 
 dotenv.config({
   path: ".env.tests",
