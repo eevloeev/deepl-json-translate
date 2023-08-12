@@ -44,7 +44,7 @@ export const translateJson = async (args: Args) => {
   translatedStrings.forEach((value, index) => {
     translatedJson[keys[index]] = value.text
   })
-  const resultJson = unflatten(translatedJson)
+  const resultJson = unflatten<FlatJSON, JSON>(translatedJson)
 
   return resultJson
 }
